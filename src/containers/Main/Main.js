@@ -4,6 +4,7 @@ import Layout from "../../hoc/Layout";
 import MainHeading from "../../components/MainHeader/MainHeader";
 import Genre from "../../components/Genre/Genre";
 import ResultsBtn from "../../components/GetResultsBtn/GetResultsBtn";
+import ResultsContainer from "../../components/Results/ResultsContainer/ResultsContainer";
 
 import SelectionBtn from "../../components/selectionBtn/selectionBtn";
 import GenreData from "../../data/Genres";
@@ -59,7 +60,14 @@ class Main extends Component {
     ));
 
     const results = this.state.queryResults.map(movie => (
-      <Results title={movie.title} images={movie.poster_path} key={movie.id} />
+      <Results
+        title={movie.title}
+        img={movie.poster_path}
+        desc={movie.overview}
+        date={movie.release_date}
+        rating={movie.vote_average}
+        key={movie.id}
+      />
     ));
 
     return (
@@ -68,7 +76,7 @@ class Main extends Component {
           <MainHeading />
           <Genre>{genreSelction}</Genre>
           <ResultsBtn getResults={this.getResultsHandler} />
-          {results}
+          <ResultsContainer>{results}</ResultsContainer>
         </Layout>
       </Aux>
     );
