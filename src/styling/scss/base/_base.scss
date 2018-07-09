@@ -13,19 +13,24 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.7rem;
-  background-image: url("/img/hollywood.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: $black;
+  color: white;
 }
 
 .container {
   width: 96rem;
   max-width: 100%;
-  margin: 3rem auto;
+  margin: auto;
   padding: 2rem;
-  background-color: transparentize($color: white, $amount: 0.5);
 }
 
-.linkBtn {
+.linkBtn,
+.linkBtn:link,
+.linkBtn:active {
   text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: $black;
+  }
 }

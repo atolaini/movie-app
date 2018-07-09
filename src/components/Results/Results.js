@@ -11,11 +11,11 @@ const results = props => {
           className="results__imgContainer--img"
         />
       </div>
-      <h4>Synopsis</h4>
-      <p>{props.desc}</p>
+      <h4 className="results__synopsisTitle">Synopsis</h4>
+      <p className="results__description">{props.desc}</p>
 
-      <p>Release Date: {props.date}</p>
-      <p>Rating: {props.rating}</p>
+      <p className="results__date">Release Date: {props.date}</p>
+      <p className="results__rating">Rating: {props.rating}</p>
     </section>
   );
 };

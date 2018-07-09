@@ -8,6 +8,7 @@ import ResultsContainer from "../../components/Results/ResultsContainer/ResultsC
 import YearSelector from "../../components/YearSelection/YearSelection";
 import StartBtn from "../../components/Buttons/StartBtn/StartBtn";
 import Results from "../../components/Results/Results";
+import BackBtn from "../../components/Buttons/BackBtn/BackBtn";
 
 import { Route } from "react-router-dom";
 
@@ -56,6 +57,10 @@ class Main extends Component {
     this.setState({ year: e.target.value });
   };
 
+  clearStateHandler = () => {
+    this.setState({ queryString: "", year: "" });
+  };
+
   render() {
     const results = this.state.queryResults.map(movie => (
       <Results
@@ -72,32 +77,32 @@ class Main extends Component {
       <Aux>
         <Layout>
           <MainHeading />
+          {/* <BackBtn startOver={this.clearStateHandler} /> */}
 
           <Route exact path="/" component={StartBtn} />
-
           <Route
             path="/genres"
-            render={() => <Genre clicked={this.genreSelectorHandler} />}
+            render={() => (
+              <Genre
+                clicked={this.genreSelectorHandler}
+                startOver={this.clearStateHandler}
+              />
+            )}
           />
-
           <Route
             path="/date"
-            render={() => <YearSelector year={this.yearHandler} />}
+            render={() => (
+              <YearSelector
+                year={this.yearHandler}
+                startOver={this.clearStateHandler}
+              />
+            )}
           />
-
-          <Route
-            path="/date"
-            render={() => <ResultsBtn getResults={this.getResultsHandler} />}
-          />
-
-          {/* <ResultsBtn getResults={this.getResultsHandler} /> */}
-
+          <Route path="/date" render={() => <ResultsBtn />} />
           <Route
             path="/results"
             render={() => <ResultsContainer>{results}</ResultsContainer>}
           />
-
-          <ResultsContainer>{results}</ResultsContainer>
         </Layout>
       </Aux>
     );

@@ -13,40 +13,59 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 1.7rem;
-  background-image: url("/img/hollywood.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat; }
+  background-color: #333333;
+  color: white; }
 
 .container {
   width: 96rem;
   max-width: 100%;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.5); }
+  margin: auto;
+  padding: 2rem; }
 
-.linkBtn {
-  text-decoration: none; }
+.linkBtn,
+.linkBtn:link,
+.linkBtn:active {
+  text-decoration: none;
+  color: white; }
+  .linkBtn:hover,
+  .linkBtn:link:hover,
+  .linkBtn:active:hover {
+    color: #333333; }
 
 .mainHeading {
   text-align: center;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  color: white; }
+
+.instructions {
+  position: relative;
+  text-align: center;
+  margin: 3rem 0px; }
 
 .selectionBtn {
   width: 10rem;
   height: 5rem;
   margin: 1rem;
-  background-color: transparent;
-  border: 2px solid red; }
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #333333;
+  font-size: 1.4rem;
+  font-weight: bold;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  .selectionBtn:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
 
 .btnActive {
   background-color: green; }
 
-.startBtn {
+.startBtn, .nextBtn {
   width: 15rem;
   height: 5rem;
   margin: auto;
   display: block;
-  border: 2px solid blue;
+  border: 2px solid yellow;
   color: white;
   font-size: 1.4rem;
   font-weight: bold;
@@ -56,15 +75,19 @@ body {
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
-  .startBtn:hover {
-    background-color: blue;
+  .startBtn:hover, .nextBtn:hover {
+    background-color: yellow;
+    color: #333333;
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
-    -webkit-box-shadow: 1px 7px 7px -5px rgba(0, 0, 0, 0.4);
-            box-shadow: 1px 7px 7px -5px rgba(0, 0, 0, 0.4); }
+    -webkit-box-shadow: 1px 7px 7px -5px rgba(255, 255, 255, 0.4);
+            box-shadow: 1px 7px 7px -5px rgba(255, 255, 255, 0.4); }
+
+.nextBtn {
+  margin-top: 3rem; }
 
 .results {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   max-width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,11 +101,19 @@ body {
           align-items: center;
   padding: 2rem;
   margin-bottom: 2rem;
-  text-align: center; }
+  text-align: center;
+  color: #333333; }
   .results:first-child {
     margin-top: 2rem; }
+  .results__synopsisTitle {
+    margin-bottom: 2rem; }
+  .results__date {
+    margin-bottom: 2rem; }
+  .results__description {
+    margin-bottom: 2rem; }
   .results__imgContainer {
-    max-width: 100%; }
+    max-width: 100%;
+    margin: 2rem 0; }
     .results__imgContainer--img {
       max-width: 100%;
       max-height: 40rem; }
@@ -93,6 +124,38 @@ body {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around; }
+
+.genreLayout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.yearSelectionForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .yearSelectionForm__input {
+    margin-bottom: 3rem;
+    width: 20rem;
+    height: 4rem;
+    border-bottom: 2px solid yellow;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    color: white;
+    font-size: 3rem;
+    text-align: center; }
+    .yearSelectionForm__input:focus {
+      outline: none; }
 
 .resultsContainer {
   height: auto;
@@ -105,5 +168,4 @@ body {
           flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
-  background-color: #333333; }
+          align-items: center; }

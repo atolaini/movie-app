@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import GenreData from "../../data/Genres";
 import NextBtn from "../../components/Buttons/Next/NextBtn";
+import Aux from "../../hoc/Aux";
+import BackBtn from "../../components/Buttons/BackBtn/BackBtn";
 
 class Genre extends Component {
   render() {
@@ -17,10 +19,12 @@ class Genre extends Component {
       );
     });
     return (
-      <div>
-        {genreSelection}
+      <Aux>
+        <BackBtn click={this.props.startOver} />
+        <p className="instructions">Selec a one or more genres</p>
+        <div className="genreLayout">{genreSelection}</div>
         <NextBtn />
-      </div>
+      </Aux>
     );
   }
 }

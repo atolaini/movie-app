@@ -2,3 +2,32 @@
   display: flex;
   justify-content: space-around;
 }
+
+.genreLayout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.yearSelectionForm {
+  display: flex;
+  justify-content: center;
+
+  &__input {
+    margin-bottom: 3rem;
+    width: 20rem;
+    height: 4rem;
+    border-bottom: 2px solid yellow;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

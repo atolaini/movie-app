@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const resultsBtn = props => {
   return (
-    <button className="resultsBtn" onClick={props.getResults}>
+    <button className="startBtn" onClick={props.getResults}>
       <Link to="/results" className="linkBtn">
         Get Results
       </Link>
