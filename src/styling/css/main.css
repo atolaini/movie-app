@@ -13,15 +13,23 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 1.7rem;
-  background-color: #333333; }
+  background-image: url("/img/hollywood.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .container {
   width: 96rem;
   max-width: 100%;
   margin: 3rem auto;
   padding: 2rem;
-  border: 1px solid red;
-  background-color: white; }
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.linkBtn {
+  text-decoration: none; }
+
+.mainHeading {
+  text-align: center;
+  margin-bottom: 2rem; }
 
 .selectionBtn {
   width: 10rem;
@@ -32,6 +40,28 @@ body {
 
 .btnActive {
   background-color: green; }
+
+.startBtn {
+  width: 15rem;
+  height: 5rem;
+  margin: auto;
+  display: block;
+  border: 2px solid blue;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: transparent;
+  font-size: 1.3srem;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  .startBtn:hover {
+    background-color: blue;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-box-shadow: 1px 7px 7px -5px rgba(0, 0, 0, 0.4);
+            box-shadow: 1px 7px 7px -5px rgba(0, 0, 0, 0.4); }
 
 .results {
   background-color: white;

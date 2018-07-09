@@ -2,26 +2,25 @@ import React, { Component } from "react";
 import Aux from "../../hoc/Aux";
 import Layout from "../../hoc/Layout";
 import MainHeading from "../../components/MainHeader/MainHeader";
-import Genre from "../../components/Genre/Genre";
+import Genre from "../../containers/Genre/Genre";
 import ResultsBtn from "../../components/GetResultsBtn/GetResultsBtn";
 import ResultsContainer from "../../components/Results/ResultsContainer/ResultsContainer";
-
-import SelectionBtn from "../../components/selectionBtn/selectionBtn";
-import GenreData from "../../data/Genres";
+import YearSelector from "../../components/YearSelection/YearSelection";
+import StartBtn from "../../components/Buttons/StartBtn/StartBtn";
 import Results from "../../components/Results/Results";
+
+import { Route } from "react-router-dom";
 
 import axios from "axios";
 
 let newArr = [];
 let APIKey = "a36227f9cffaeb70a3424d2e96f7f4c5";
 
-// IF I WANT TO ADD A YEAR AS A SEARCH FIELD
-// &primary_release_year=1967
-
 class Main extends Component {
   state = {
     queryString: "",
-    queryResults: []
+    queryResults: [],
+    year: ""
   };
 
   // THIS IS TO CREATE A QUERY STRING FROM USERS SELECTION
@@ -39,26 +38,25 @@ class Main extends Component {
     console.log(genreSearch);
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=${genreSearch}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=${genreSearch}&primary_release_year=${
+          this.state.year
+        }`
       )
       .then(res => {
         // console.log(res);
         this.setState({ queryResults: res.data.results });
         console.log(this.state.queryResults);
+      })
+      .catch(err => {
+        console.log(err);
       });
   };
 
-  render() {
-    const genreSelction = GenreData.genres.map(el => (
-      <SelectionBtn
-        genreID={el.id}
-        key={el.id}
-        click={this.genreSelectorHandler}
-      >
-        {el.name}
-      </SelectionBtn>
-    ));
+  yearHandler = e => {
+    this.setState({ year: e.target.value });
+  };
 
+  render() {
     const results = this.state.queryResults.map(movie => (
       <Results
         title={movie.title}
@@ -74,8 +72,31 @@ class Main extends Component {
       <Aux>
         <Layout>
           <MainHeading />
-          <Genre>{genreSelction}</Genre>
-          <ResultsBtn getResults={this.getResultsHandler} />
+
+          <Route exact path="/" component={StartBtn} />
+
+          <Route
+            path="/genres"
+            render={() => <Genre clicked={this.genreSelectorHandler} />}
+          />
+
+          <Route
+            path="/date"
+            render={() => <YearSelector year={this.yearHandler} />}
+          />
+
+          <Route
+            path="/date"
+            render={() => <ResultsBtn getResults={this.getResultsHandler} />}
+          />
+
+          {/* <ResultsBtn getResults={this.getResultsHandler} /> */}
+
+          <Route
+            path="/results"
+            render={() => <ResultsContainer>{results}</ResultsContainer>}
+          />
+
           <ResultsContainer>{results}</ResultsContainer>
         </Layout>
       </Aux>

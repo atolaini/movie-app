@@ -1,0 +1,21 @@
+.startBtn {
+  width: 15rem;
+  height: 5rem;
+  margin: auto;
+  display: block;
+  border: 2px solid blue;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: transparent;
+  font-size: 1.3srem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: blue;
+    transform: scale(1.1);
+    box-shadow: 1px 7px 7px -5px transparentize($color: black, $amount: 0.6);
+  }
+}

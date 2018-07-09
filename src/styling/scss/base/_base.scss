@@ -13,7 +13,9 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.7rem;
-  background-color: $black;
+  background-image: url("/img/hollywood.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -21,6 +23,9 @@ body {
   max-width: 100%;
   margin: 3rem auto;
   padding: 2rem;
-  border: 1px solid red;
-  background-color: white;
+  background-color: transparentize($color: white, $amount: 0.5);
+}
+
+.linkBtn {
+  text-decoration: none;
 }
